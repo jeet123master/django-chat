@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% if page == 'login-page' %}
+<div class="container">
+	<div class="card my-3">
+		<div class="card-title">
+			<h3>Login Details</h3>
+		</div>
+		<div class="card-body">
+			<form method="POST">
+				{% csrf_token %}
+			  <div class="form-group">
+			    <label for="username">Username</label>
+			    <input type="text" class="form-control" id="username" name="username">
+			  <div class="form-group">
+			    <label for="password">Password</label>
+			    <input type="password" class="form-control" id="password" name="password">
+			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+
+			<p>Not sign up?</p>
+			<a href="{% url 'register-page' %}" class="btn btn-outline-success">Sign up</a>
+		</div>
+	</div>
+</div>
+
+	{% else %}
+<div class="container">
+	<div class="card my-3">
+		<div class="card-title">
+			<h3>Please Fill User Details</h3>
+		</div>
+		<div class="card-body">
+			<form method="POST">
+			{% csrf_token %}
+
+			{{form|crispy}}
+
+				<input type="submit" name="" class="btn btn-outline-primary" value="Register">
+			</form>
+			<p>Already sign up?</p>
+			<a href="{% url 'login-page' %}" class="btn btn-outline-success">Login</a>
+		</div>
+		
+	</div>
+</div>
+{% endif %}
+{% endblock %}

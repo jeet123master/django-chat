@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row my-4">
+		<div class="col-md-3">
+		{% include 'base/topic_component.html' %}
+		</div>
+
+		<div class="card-header shadow col-md-6">
+			<div class="card-header shadow my-3">
+				<h5>{{room_count}} rooms available</h5>
+				<a href="{% url 'create-room' %}" class="btn btn-primary bt-square"><i class="fa fa-plus"></i>Room</a>
+			</div>
+			{% include 'base/feed_component.html' %}
+			
+		</div>
+
+		<div class="col-md-3">
+			{% include 'base/activity_component.html' %}
+		</div>
+	</div>
+
+	
+</div>
+
+{% endblock %}
