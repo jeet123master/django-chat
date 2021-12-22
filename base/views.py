@@ -194,3 +194,7 @@ def DeleteMessage(request, pk):
 		'message':message
 	}
 	return render(request, 'base/message_delete.html', context)
+
+@login_required(login_url="login-page")
+def UpdateUser(request):
+	return render(request, 'base/user_update.html')

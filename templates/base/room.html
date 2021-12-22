@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<div class="room-container">
-	<div>
+<div class="row">
+	<div class="col-md-8">
 		<h1>{{room.name}}</h1>
 		<p>{{room.description}}</p>
 
@@ -30,10 +30,10 @@
 				<input type="text" name="body" class="form-control" placeholder="write your message here....">
 			</form>
 		</div>
-{% endif %}
+		{% endif %}
 	</div>
 
-	<div>
+	<div class="col-md-4">
 		<h3>Paticipants</h3>
 		<hr>
 		{% for user in participants %}

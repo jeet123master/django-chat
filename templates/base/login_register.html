@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if page == 'login-page' %}
-<div class="container">
+
 	<div class="card my-3">
 		<div class="card-header">
 			<h3>Login Details</h3>
@@ -25,10 +25,10 @@
 			<a href="{% url 'register-page' %}" class="btn btn-outline-success">Sign up</a>
 		</div>
 	</div>
-</div>
+
 
 	{% else %}
-<div class="container">
+
 	<div class="card my-3">
 		<div class="card-header">
 			<h3>Please Fill User Details</h3>
@@ -46,6 +46,6 @@
 		</div>
 		
 	</div>
-</div>
+
 {% endif %}
 {% endblock %}

@@ -12,15 +12,16 @@
     <ul class="navbar-nav ml-auto">
       
       {% if request.user.is_authenticated %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-          {{request.user}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="nav-link" href="{% url 'logout-page' %}">Logout</a>
-          
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+          {{request.user.username}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="{% url 'logout-page' %}"><i class="fa fa-sign-out"></i>Logout</a>
+          <a class="dropdown-item" href="{% url 'update-user' %}"><i class="fa fa-cog"></i>Setting</a>
         </div>
-      </li>
+      </div>
+      
 		{% else %}
 		<li class="nav-item">
       <a class="nav-link" href="{% url 'login-page' %}">Login</a>
