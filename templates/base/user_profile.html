@@ -1,21 +1,40 @@
+
 {% extends 'main.html' %}
 
 {% block content %}
 
-
-<h3>{{user.username}}</h3>
-
+{% load static %}
 
 <div class="row">
+
 	<div class="col-md-3">
 	{% include 'base/topic_component.html' %}
 	</div>
 	<div class="col-md-6">
+		<div class="column card-body shadow text-center">
+			<img src="{% static 'images/avatar.png' %}"><br>
+			<strong>{{user.username}}</strong><br>
+			{% if request.user == user %}
+			<a href="{% url 'update-user' %}" class="btn btn-outline-success">Edit Profile</a>
+			{% endif %}	
+		</div>
+		<hr>
+		<div class="card-header shadow">
+			<strong>Study Room hosted by {{user.username}}</strong>
+		</div>
 		{% include 'base/feed_component.html' %}
 	</div>
 	<div class="col-md-3">
 		{% include 'base/activity_component.html' %}
 	</div>
 </div>
+
+<style type="text/css">
+	img{
+		border-radius: 50%;
+		height: 100px;
+		widows: 100px;
+	}
+</style>
 
 {% endblock %}
